@@ -1,0 +1,81 @@
+/* Product Container Styles */
+.product__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section__header {
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.product-info, .order-form {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+.product-info img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Order Form Styles */
+.order-form {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.order-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.order-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-form input, .order-form button {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.order-form input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+.order-form button {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-form button:hover {
+    background-color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product__container {
+        flex-direction: column;
+    }
+}

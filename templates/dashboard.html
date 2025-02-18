@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../static/dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <script src="../static/dashboard.js"></script>
+    <script src="../static/activeProducts.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            <h2>Online.shop</h2>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="side-nav">
+            <ul>
+                <li><a href="/">Back to Website</a></li>
+            </ul>
+            <ul>
+                <li><a href="">Active Products</a></li>
+            </ul>
+            <ul>
+                <li><a>New Orders</a></li>
+            </ul>
+        </div>
+        <main class="main-content">
+            <div class="header-button">
+                <button>New Product</button>
+            </div>
+            <div class="add-product-modal">
+                <h2>Add a new product</h2>
+                <form id="add-product-form" action='/newproduct' method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="product-name">Product Name:</label>
+                        <input type="text" id="product-name" name="product-name" required>
+                    </div>
+                    <div>
+                        <label for="product-price">Price:</label>
+                        <input type="number" id="product-price" name="product-price" required>
+                    </div>
+                    <div>
+                        <label for="product-description">Description:</label>
+                        <textarea id="product-description" name="product-description" required></textarea>
+                    </div>
+                    <div>
+                        <label for="product-image">Image:</label>
+                        <input type="file" id="product-image" name="product-image" accept="image/*" required>
+                    </div>
+                    <div>
+                        <button type="submit">Add Product</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="active-products">
+                <!-- Products will be populated here by JavaScript -->
+            </div>
+
+            <!-- Edit Product Modal -->
+    <div class="edit-product-modal" id="edit-product-modal">
+        <h2>Edit Product</h2>
+        <form id="edit-product-form">
+            <div>
+                <label for="edit-product-name">Product Name:</label>
+                <input type="text" id="edit-product-name" name="product-name" required>
+            </div>
+            <div>
+                <label for="edit-product-price">Price:</label>
+                <input type="number" id="edit-product-price" name="product-price" required>
+            </div>
+            <div>
+                <label for="edit-product-description">Description:</label>
+                <textarea id="edit-product-description" name="product-description" required></textarea>
+            </div>
+            <div>
+                <label for="edit-product-image">Image:</label>
+                <input type="file" id="edit-product-image" name="product-image" accept="image/*">
+            </div>
+            <div>
+                <button type="submit">Save Changes</button>
+                <button type="button" onclick="closeEditModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+            <div class="new-orders">
+                <div class="order-card">
+                    <h3>Product Name</h3>
+                        <p>Buyer:</p>
+                        <p>Quantity: 2</p>
+                        <p>Total: $200</p>
+                        <p>Phone:</p>
+                        <p>Address:</p>
+                    <img src="../static/assets/creatine.jpg" alt="Product Image">
+                    <div>
+                        <button class="mark-delivered">
+                            <i class="ri-check-line"></i> Mark as Delivered
+                        </button>
+                        <button class="delete">
+                            <i class="ri-delete-bin-line"></i> Delete
+                        </button>
+                    </div>
+                </div>
+                
+        </main>
+    </div>
+</body>
+
+</html>
