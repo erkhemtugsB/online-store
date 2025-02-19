@@ -10,16 +10,19 @@ def create_app():
 
     with app.app_context():
         from models.product import Product  # ✅ Import inside app context to avoid circular import
+        from models.order import Order
         db.create_all()  # Ensure tables are created
 
     # Register Blueprints
     from routes.auth import auth_bp
     from routes.products import products_bp
     from routes.main import main_bp
+    from routes.orders import orders_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(products_bp)
     app.register_blueprint(main_bp)
+    app.register_blueprint(orders_bp)
 
     return app
 

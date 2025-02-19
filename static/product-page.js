@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p>${product.description}</p>
 
                 `;
+                document.getElementById('product-id').value = productId;
+
             })
             .catch(error => {
                 alert('Error: ' + error.message);
