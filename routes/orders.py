@@ -35,3 +35,12 @@ def get_orders():
         # 'updated_at': order.updated_at
     } for order in orders]
     return jsonify({'orders': orders_list})
+
+@orders_bp.route('/api/orders/delete/<int:id>', methods=['DELETE'])
+def delete_order(id):
+    order = Order.query.get(id)
+    if order:
+        db.session.delete(order)
+        db.session.commit()
+        return jsonify({'message': 'Order deleted successfully!'})
+    return jsonify({'message': 'Order not found'}), 404
