@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <img src="../static/assets/products/${product.image}" alt="Product Image">
                             <div>
                                 <button class="delete" onclick="deleteOrder(${order.id})">
-                                    <i class="ri-delete-bin-line"></i> Delete
+                                    <i class="ri-delete-bin-line"></i> Delivered
                                 </button>
                             </div>
                         `;

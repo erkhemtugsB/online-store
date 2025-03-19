@@ -1,24 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
+    // Fetch product information and display it
+    const productId = 1; // Replace with the actual product ID you want to fetch
+    fetch(`/api/products/${productId}`)
+        .then(response => response.json())
+        .then(product => {
+            document.querySelector('.product-info').innerHTML = `
+                <h3>${product.name}</h3>
+                <p>Price: $${product.price}</p>
+                <p>${product.description}</p>
+                <img src="../static/assets/products/${product.image}" alt="Product Image">
+            `;
+            // Set the product ID in the hidden input field
+            document.getElementById('product-id').value = product.id;
+        });
 
-    if (productId) {
-        fetch(`/api/products/${productId}`)
-            .then(response => response.json())
-            .then(product => {
-                const productInfo = document.querySelector('.product-info');
-                productInfo.innerHTML = `
-                    <h3>${product.name}</h3>
-                    <p>Price: $${product.price}</p>
-                    <img src="/static/assets/products/${product.image}" alt="${product.name}" />
-                    <p>${product.description}</p>
-
-                `;
-                document.getElementById('product-id').value = productId;
-
-            })
-            .catch(error => {
-                alert('Error: ' + error.message);
-            });
-    }
+    // Add event listener to the order button
+    document.getElementById('order-button').addEventListener('click', function () {
+        const productId = document.getElementById('product-id').value;
+        console.log(`Ordering product with ID: ${productId}`);
+    });
 });
