@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             <p>Address: ${order.customer_address}</p>
                             <img src="../static/assets/products/${product.image}" alt="Product Image">
                             <div>
-                                <button class="mark-delivered" onclick="markAsDelivered(${order.id})">
-                                    <i class="ri-check-line"></i> Mark as Delivered
-                                </button>
                                 <button class="delete" onclick="deleteOrder(${order.id})">
                                     <i class="ri-delete-bin-line"></i> Delete
                                 </button>
