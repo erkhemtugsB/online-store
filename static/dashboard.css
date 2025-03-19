@@ -347,3 +347,9 @@ header .top-nav nav a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+
+.active-orders {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Add some space between the cards */
+}

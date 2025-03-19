@@ -19,3 +19,19 @@ def new_order():
    db.session.commit()
    flash
    return redirect(url_for('products.product'))
+
+@orders_bp.route('/api/orders', methods=['GET'])
+def get_orders():
+    orders = Order.query.all()
+    orders_list = [{
+        'id': order.id,
+        'product_id': order.product_id,
+        'customer_name': order.customer_name,
+        'customer_address': order.customer_address,
+        'customer_phone': order.customer_phone,
+        'quantity': order.quantity,
+        # 'status': order.status,
+        # 'created_at': order.created_at,
+        # 'updated_at': order.updated_at
+    } for order in orders]
+    return jsonify({'orders': orders_list})
